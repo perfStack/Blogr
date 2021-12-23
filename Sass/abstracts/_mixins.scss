@@ -1,0 +1,38 @@
+@use '../abstracts/variables' as v;
+
+@mixin font-family-ubuntu {
+  font-family: Ubuntu, sans-serif;
+}
+
+@mixin center-cont {
+  margin: 0 auto;
+}
+
+@mixin link-style-underline($thickness: 0.2) {
+  border-bottom: ($thickness * 1rem) solid v.$color-neutral-white;
+}
+
+@mixin flex-center-all {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+// Graceful hiding to ensure assistive technologies can access content
+@mixin visually-hidden {
+  @supports not (clip-path: polygon(0 0, 0 0, 0 0)) {
+    clip: rect(0 0 0 0);
+  }
+
+  // position: absaloute to take the content out of flow
+  // Height and width are set to 1px/.1rem so that it is accessible to screen readers
+  // using margin -1px/-.1rem and other attributes ensures content is hidden from sighted users
+  border: 0;
+  clip-path: polygon(0 0, 0 0, 0 0);
+  height: 0.1rem;
+  margin: -0.1rem;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 0.1rem;
+}

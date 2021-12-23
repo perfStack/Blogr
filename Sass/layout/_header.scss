@@ -1,0 +1,49 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+
+.header {
+  background-image:
+    linear-gradient(
+      to right,
+      f.addTransparency(v.$color-gradient-vlRed, -0.05),
+      f.addTransparency(v.$color-gradient-lRed, -0.05),
+    ),
+    url('../assets/images/bg-pattern-intro-desktop.svg');
+  background-position: 25% 50%;
+  border-bottom-left-radius: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 65vh;
+
+  &__cont {
+    flex-basis: 80%;
+    margin: 0 auto;
+    padding-bottom: v.$space-xxxxl;
+  }
+
+  &__text-cont {
+    margin-bottom: v.$space-l;
+    text-align: center;
+  }
+
+  &__title {
+    margin-bottom: v.$space-s;
+  }
+
+  &__description {
+    color: v.$color-neutral-lRed;
+    font-size: v.$font-m;
+    font-weight: 400;
+  }
+
+  &__btn-cont {
+    @include m.font-family-ubuntu;
+
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}

@@ -1,0 +1,213 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+
+// Local variables
+$highlight-section-bg-height: 98%;
+
+// Local mixin
+@mixin z-title($space, $position-top-offset) {
+  .why {
+    // margin-top: v.$space-s for small
+    // margin-top: v.$space-m for medium
+    &--1 > &__section-cont {
+      margin-top: $space;
+    }
+  }
+
+  // top: 2% for small
+  // top: -1% for medium
+  .z-card__title {
+    top: $position-top-offset * 1%;
+  }
+}
+
+// ###################### Main media queires ######################
+@media (max-width: f.divide(1300) * 1em) {
+  .z-card__title {
+    top: 8%;
+  }
+}
+
+@media (max-width: f.divide(1200) * 1em) {
+  @include z-title(v.$space-s, 2);
+}
+
+@media (max-width: f.divide(1100) * 1em) {
+  @include z-title(v.$space-m, -1);
+
+  .highlight {
+    &__section-cont {
+      &::before {
+        background-position: -17.5rem -41rem;
+      }
+    }
+  }
+}
+
+@media (max-width: f.divide(1000) * 1em) {
+  @include z-title(v.$space-s, 2);
+
+  html {
+    font-size: f.divide(85) * 10%;
+  }
+}
+
+@media (max-width: f.divide(900) * 1em) {
+  @include z-title(v.$space-xl, -2);
+}
+
+@media (max-width: f.divide(850) * 1em) {
+  @include z-title(v.$space-xxl, -5);
+
+  .z-card {
+    &#{&}--1 {
+      padding: v.$space-xxl 0;
+    }
+  }
+
+  .highlight {
+    &__section-cont {
+      &::before {
+        background-position: -12.5rem -31rem;
+      }
+    }
+  }
+}
+
+@media (max-width: f.divide(700) * 1em) {
+  .footer {
+    &__cont {
+      margin: 0 auto 0 v.$space-s;
+      max-width: 90%;
+    }
+  }
+}
+
+@media (max-width: f.divide(650) * 1em) {
+  .heading {
+    &-primary {
+      line-height: 1.25;
+    }
+  }
+
+  .why {
+    &--1 > &__section-cont {
+      margin-top: v.$space-xxxl;
+    }
+  }
+
+  .z-card {
+    &--left,
+    &--right {
+      margin: 0 auto;
+    }
+
+    &--left {
+      flex-direction: column;
+    }
+
+    &--right {
+      flex-direction: column-reverse;
+    }
+
+    &__title {
+      left: 0;
+      top: -3%;
+    }
+
+    &__content-cont {
+      width: 100%;
+    }
+
+    &__img-cont {
+      margin-bottom: v.$space-l;
+      width: 80%;
+    }
+
+    &__img {
+      width: 100%;
+
+      &--editor,
+      &--laptop {
+        transform: translate(0, 0);
+      }
+    }
+  }
+
+  .nav {
+    &__bar {
+      justify-content: space-between;
+    }
+
+    &--desktop {
+      display: none;
+    }
+
+    &--mobile {
+      display: block;
+    }
+  }
+
+  .highlight {
+    margin-bottom: v.$space-xl;
+
+    &__section-cont {
+      flex-direction: column;
+
+      &::before,
+      &::after {
+        height: $highlight-section-bg-height;
+      }
+
+      &::before {
+        background-position: -0.5rem -37rem;
+        width: 100%;
+      }
+    }
+
+    &__img-cont {
+      max-width: 60%;
+      padding-bottom: v.$space-s;
+    }
+
+    &__content-cont {
+      max-width: 80%;
+      padding-left: v.$space-s;
+      padding-right: 0;
+    }
+  }
+}
+
+@media (max-width: f.divide(550) * 1em) {
+  .nav--mobile__cont {
+    min-width: 80vw;
+  }
+
+  .highlight {
+    &__section-cont {
+      &::before {
+        background-position: -0.5rem -33rem;
+      }
+    }
+  }
+
+  .footer {
+    &__cont {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &__img-cont {
+      margin-bottom: v.$space-xxl;
+    }
+
+    &__img-cont ~ :not(:last-child) {
+      margin-bottom: v.$space-xl;
+    }
+  }
+}
+
+@media (max-width: f.divide(450) * 1em) {
+  @include z-title(v.$space-xxxxl, -6);
+}

@@ -1,0 +1,62 @@
+@use '../abstracts/functions' as f;
+
+//  ######################## Colors ########################
+
+// Primary
+$color-primary-lRed: hsl(356deg, 100%, 66%);
+$color-primary-vlRed: hsl(355deg, 100%, 74%);
+$color-primary-vdBlue: hsl(208deg, 49%, 24%);
+
+// Neutral
+$color-neutral-vlRed: hsl(19deg, 100%, 92%);
+$color-neutral-lRed: hsl(359deg, 74%, 85%);
+$color-neutral-white: hsl(0deg, 0%, 100%);
+$color-neutral-lgrayBlue: hsl(208deg, 10%, 39%);
+$color-neutral-grayBlue: hsl(240deg, 2%, 79%);
+$color-neutral-vdGrayBlue: hsl(207deg, 13%, 34%);
+$color-neutral-vdBlackBlue: hsl(240deg, 10%, 16%);
+$color-neutral-lgrey: hsl(240deg, 7%, 94%);
+
+// Gradient
+$color-gradient-vlRed: hsla(13deg, 100%, 72%);
+$color-gradient-lRed: hsla(353deg, 100%, 62%);
+$color-gradient-vdGrayBlue: hsl(273deg, 17%, 21%);
+$color-gradient-vdDesatBlue: hsl(237deg, 23%, 32%);
+
+// Box ::shadow
+$color-shadow-vlBlack: hsla(0deg, 0%, 0%, 0.2);
+
+// ######################## Shadows ########################
+$shadow-vlBlack: hsla(0deg, 0%, 0%, 0.1);
+
+//  ######################## Fonts ########################
+$font-xxxl: 6.734rem;
+$font-xxl: 5.025rem;
+$font-xl: 3.79rem;
+$font-l: 2.843rem;
+$font-m: 2.133rem;
+$font-s: 1.6rem;
+$font-xs: 1.2rem;
+$font-xxs: 0.9rem;
+$font-xxxs: 0.676rem;
+
+//  ######################## Spacing ########################
+$space-xxxxl: 12.8rem;
+$space-xxxl: 9.6rem;
+$space-xxl: 8rem;
+$space-xl: 6.4rem;
+$space-l: 4.8rem;
+$space-m: 3.2rem;
+$space-s: 2.4rem;
+$space-xs: 1.6rem;
+$space-xxs: 1.2rem;
+$space-xxxs: 0.8rem;
+$space-xxxxs: 0.4rem;
+$space-xxxxxs: 0.2rem;
+
+// ######################## Others ########################
+$max-cont-width: 90%;
+$tertiary-mb: $space-s;
+$font-nav-dropdown-list: $font-s - 0.1rem;
+$font-footer-list: $font-nav-dropdown-list;
+$size-highlight-section-cont: 42rem;
