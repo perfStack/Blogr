@@ -172,6 +172,7 @@ $navbar-height: v.$space-xl;
 
     &__link {
       color: v.$color-primary-vdBlue;
+      cursor: pointer;
       font-size: v.$font-m;
       font-weight: 600;
     }

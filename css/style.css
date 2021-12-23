@@ -327,6 +327,7 @@ li {
 }
 .nav--mobile__link {
   color: #1f3f5b;
+  cursor: pointer;
   font-size: 2.133rem;
   font-weight: 600;
 }
