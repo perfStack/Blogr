@@ -1,0 +1,52 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+
+@font-face {
+  font-display: swap;
+  font-family: Ubuntu;
+  src: url('../assets/fonts/ubuntu-r-webfont.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Overpass;
+  src: url('../assets/fonts/Overpass-Regular.woff2') format('woff2');
+}
+
+p {
+  font-size: v.$font-s;
+  font-weight: 400;
+  letter-spacing: 0.03rem;
+  line-height: 1.8;
+}
+
+h4 {
+  font-size: v.$font-xs;
+  font-weight: 400;
+}
+
+.heading {
+  line-height: 1;
+
+  &-primary {
+    @include m.font-family-ubuntu;
+
+    color: v.$color-neutral-white;
+    font-size: v.$font-xxxl;
+    font-weight: 500;
+    letter-spacing: -0.085rem;
+  }
+
+  &-secondary {
+    font-size: v.$font-xxl;
+    font-weight: 400;
+    letter-spacing: -0.2rem;
+  }
+
+  &-tertiary {
+    font-size: v.$font-l;
+    font-weight: 400;
+    letter-spacing: -0.1rem;
+  }
+}

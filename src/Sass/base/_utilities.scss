@@ -1,0 +1,41 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+
+.u {
+  &__ta-c {
+    text-align: center;
+  }
+
+  &__primary-vdBlue {
+    color: v.$color-primary-vdBlue;
+  }
+
+  &__neutral-vdGrayBlue {
+    color: v.$color-neutral-vdGrayBlue;
+  }
+
+  &__tertiary-sb {
+    &:not(:last-child) {
+      margin-bottom: v.$tertiary-mb;
+    }
+  }
+
+  // Graceful hiding to ensure assistive technologies can access content
+  &__visually-hidden {
+    @include m.visually-hidden;
+  }
+
+  // Bruteforce hiding to ensure content is not accessible
+  &__hidden {
+    display: none !important;
+  }
+
+  &__box-shadow--light {
+    box-shadow: 0 0 0.2rem v.$color-shadow-vlBlack;
+  }
+
+  &__rotate-180 {
+    transform: rotate(180);
+  }
+}

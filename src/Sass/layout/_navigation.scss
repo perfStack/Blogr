@@ -1,0 +1,269 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+
+// ############################## Local variables ################################
+$navbar-height: v.$space-xl;
+
+// ############################## Local mixins ################################
+@mixin link-hover-bg-shadow {
+  text-shadow: 0 0 0.01rem v.$color-neutral-vdBlackBlue;
+}
+
+.nav {
+  &__cont {
+    @include m.center-cont;
+
+    padding: v.$space-m 0 v.$space-xxxxl;
+    width: 90vw;
+  }
+
+  &__bar {
+    @include m.flex-center-all;
+
+    border-radius: 0.2rem 1rem;
+    box-sizing: border-box;
+    height: $navbar-height;
+    padding: 0 v.$space-xxs;
+    position: relative;
+    width: inherit;
+  }
+
+  &__logo {
+    display: inline-block;
+  }
+
+  &__links-cont {
+    align-items: flex-end;
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-between;
+    margin-left: v.$space-l;
+  }
+
+  &__list {
+    @include m.flex-center-all;
+
+    position: relative;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: v.$space-s;
+    }
+  }
+
+  &__popup {
+    background-color: v.$color-neutral-white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 1rem v.$shadow-vlBlack;
+    box-sizing: border-box;
+    font-size: v.$font-nav-dropdown-list;
+    font-weight: 500;
+    margin-top: v.$space-m;
+    padding: v.$space-s v.$space-l v.$space-s v.$space-xxs;
+    position: absolute;
+    top: 0;
+    transition: all 0.2s;
+    visibility: hidden;
+    z-index: 10;
+
+    &--1 {
+      left: 0 - v.$space-xxs;
+    }
+
+    &--2 {
+      left: 31%;
+    }
+
+    &--3 {
+      left: 70%;
+    }
+
+    &-item {
+      color: v.$color-primary-vdBlue;
+
+      &:not(:last-child) {
+        margin-bottom: v.$space-xxs;
+      }
+    }
+
+    &-link:hover,
+    &-link:active {
+      @include link-hover-bg-shadow;
+    }
+  }
+
+  &__text {
+    margin-right: v.$space-xxxxxs;
+  }
+
+  &__link-cont {
+    margin-bottom: v.$space-xxs;
+  }
+
+  &__link {
+    color: v.$color-neutral-vlRed;
+    cursor: pointer;
+    font-size: v.$font-s;
+    font-weight: 600;
+  }
+
+  &__login {
+    margin-right: v.$space-s;
+
+    &:hover {
+      @include m.link-style-underline;
+
+      color: v.$color-neutral-white;
+    }
+  }
+
+  // ############################ Mobile nav ############################
+  &--mobile {
+    display: none;
+    height: inherit;
+    z-index: 1000;
+
+    &__icon-cont {
+      @include m.flex-center-all;
+
+      flex-direction: column;
+      height: inherit;
+      padding: 0 v.$space-xs;
+    }
+
+    &__cont {
+      @include m.center-cont;
+
+      background-color: v.$color-neutral-white;
+      border-radius: 0.5rem;
+      left: 50%;
+      max-height: 70vh;
+      min-width: 60vw;
+      overflow: scroll;
+      padding: v.$space-l 0;
+      position: absolute;
+      top: 140%;
+      transform: translate(-50%, 0);
+    }
+
+    &__links-cont {
+      @include m.flex-center-all;
+
+      flex-direction: column;
+      text-align: center;
+    }
+
+    &__list {
+      height: 60%;
+      width: 80%;
+
+      &::after {
+        border-bottom: 0.1rem solid v.$color-neutral-grayBlue;
+        content: '';
+        display: block;
+      }
+    }
+
+    &__item {
+      margin-bottom: v.$space-s;
+    }
+
+    &__link {
+      color: v.$color-primary-vdBlue;
+      cursor: pointer;
+      font-size: v.$font-m;
+      font-weight: 600;
+    }
+
+    &__arrow-cont {
+      display: inline-block;
+    }
+
+    &__arrow {
+      vertical-align: middle;
+    }
+
+    &__popup {
+      background-color: v.$color-neutral-lgrey;
+      border-radius: 0.5rem;
+      font-size: v.$font-nav-dropdown-list;
+      font-weight: 500;
+      margin: v.$space-xxxs 0 v.$space-m;
+      padding: v.$space-m v.$space-s;
+      text-align: center;
+      transition: all 0.2s;
+
+      &-item {
+        padding: v.$space-xxxs 0;
+
+        &:not(:last-child) {
+          margin-bottom: v.$space-xxxs;
+        }
+      }
+    }
+
+    &__popup-link {
+      color: v.$color-neutral-lgrayBlue;
+      font-size: v.$font-m - 0.3rem;
+      font-weight: 600;
+
+      &:hover,
+      &:active {
+        @include link-hover-bg-shadow;
+      }
+    }
+
+    &__btn-cont {
+      @include m.flex-center-all;
+
+      flex-direction: column;
+      margin-top: v.$space-s;
+
+      > *:not(:last-child) {
+        margin-bottom: v.$space-s;
+      }
+    }
+  }
+
+  // ############################ Complex selectors ############################
+  .active &--mobile__arrow,
+  &__item:hover &__arrow {
+    transform: rotate(180deg);
+  }
+
+  &__item:hover &__popup {
+    visibility: visible;
+  }
+
+  &__item:hover &__text {
+    @include m.link-style-underline;
+
+    color: v.$color-neutral-white;
+  }
+}
+
+.navbar {
+  &-sticky {
+    @include m.center-cont;
+
+    background-color: v.$color-primary-lRed;
+    background-image:
+      linear-gradient(
+        to right,
+        v.$color-gradient-vlRed,
+        v.$color-gradient-lRed
+      );
+    position: fixed;
+    top: 0;
+    width: 90vw;
+    z-index: 1000;
+  }
+
+  &-height-offset {
+    padding-top: v.$space-xxxxl - ($navbar-height + v.$space-xxxs);
+  }
+}
+
+// todo navbar subtle shadow also highlight hover links in nav dropdown mobile

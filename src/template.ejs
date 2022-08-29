@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="<%= require('./assets/images/favicon-32x32.png') %>"
+    />
+    <title>Blogr</title>
+    <style>
+      html {
+        visibility: hidden;
+        opacity: 0;
+      }
+    </style>
+    <% for (var css in htmlWebpackPlugin.files.css) { -%>
+    <!-- <link
+      rel="preload"
+      href="<%= htmlWebpackPlugin.files.css[css] %>"
+      as="style"
+    /> -->
+    <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet" />
+    <% } -%> <% for (var js in htmlWebpackPlugin.files.js) { -%>
+    <script defer src="<%= htmlWebpackPlugin.files.js[js] %>"></script>
+    <% } -%>
+  </head>
+  <body>
+    <noscript class="noscript"
+      ><p class="noscript__text">
+        Please enable Javascript for optimal experience.
+      </p></noscript
+    >
+
+    <header class="header">
+      <!-- Ask for correct placement of nav elem -->
+      <div class="nav">
+        <div class="nav__cont">
+          <div class="nav__bar">
+            <div class="logo nav__logo">
+              <img
+                src="<%= require('./assets/images/logo.svg') %>"
+                alt="company logo"
+              />
+            </div>
+            <nav class="nav--desktop nav__links-cont">
+              <ul class="nav__list">
+                <li class="nav__item nav__item--1">
+                  <div class="nav__item-cont">
+                    <div class="nav__link-cont">
+                      <div class="nav__link">
+                        <span class="nav__text"> Product </span>
+                        <span
+                          ><img
+                            class="nav__arrow"
+                            src="<%= require('./assets/images/icon-arrow-light.svg') %>"
+                            alt="down arrow icon"
+                        /></span>
+                      </div>
+                    </div>
+                    <div class="nav__popup nav__popup--1">
+                      <div class="nav__popup-cont">
+                        <ul class="nav__popup-list">
+                          <li class="nav__popup-item">
+                            <a href="#" class="nav__popup-link">Overview</a>
+                          </li>
+                          <li class="nav__popup-item">
+                            <a href="#" class="nav__popup-link">Pricing</a>
+                          </li>
+                          <li class="nav__popup-item">
+                            <a href="#" class="nav__popup-link">Marketplace</a>
+                          </li>
+                          <li class="nav__popup-item">
+                            <a href="#" class="nav__popup-link">Features</a>
+                          </li>
+                          <li class="nav__popup-item">
+                            <a href="#" class="nav__popup-link">Integrations</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="nav__item nav__item--2">
+                  <div class="nav__item-cont">
+                    <div class="nav__link-cont">
+                      <div class="nav__link">
+                        <span class="nav__text"> Company </span>
+                        <span
+                          ><img
+                            class="nav__arrow"
+                            src="<%= require('./assets/images/icon-arrow-light.svg') %>"
+                            alt="down arrow icon"
+                        /></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="nav__popup nav__popup--2">
+                    <div class="nav__popup-cont">
+                      <ul class="nav__popup-list">
+                        <li class="nav__popup-item">
+                          <a href="#" class="nav__popup-link">About</a>
+                        </li>
+                        <li class="nav__popup-item">
+                          <a href="#" class="nav__popup-link">Team</a>
+                        </li>
+                        <li class="nav__popup-item">
+                          <a href="#" class="nav__popup-link">Blog</a>
+                        </li>
+                        <li class="nav__popup-item">
+                          <a href="#" class="nav__popup-link">Careers</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="nav__item nav_item--3">
+                  <div class="nav__item-cont">
+                    <div class="nav__link-cont">
+                      <div class="nav__link">
+                        <span class="nav__text"> Connect </span>
+                        <span
+                          ><img
+                            class="nav__arrow"
+                            src="<%= require('./assets/images/icon-arrow-light.svg') %>"
+                            alt="down arrow icon"
+                        /></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="nav__popup nav__popup--3">
+                    <div class="nav__popup-cont">
+                      <ul class="nav__popup-list">
+                        <li class="nav__popup-item">
+                          <a href="#" class="nav__popup-link">Contact</a>
+                        </li>
+                        <li class="nav__popup-item">
+                          <a href="#" class="nav__popup-link">Newsletter</a>
+                        </li>
+                        <li class="nav__popup-item">
+                          <a href="#" class="nav__popup-link">LinkedIn</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="nav__btn-cont">
+                <a href="#" class="nav__link"
+                  ><span class="nav__login"> Login</span></a
+                >
+                <a href="#" class="btn btn--long btn--white-bg">Sign Up</a>
+              </div>
+            </nav>
+
+            <div class="nav--mobile">
+              <div class="nav--mobile__icon-cont">
+                <img
+                  class="nav--mobile__icon"
+                  src="<%= require('./assets/images/icon-hamburger.svg') %>"
+                  alt="menu hamburger icon"
+                />
+                <img
+                  class="nav--mobile__icon u__hidden"
+                  src="<%= require('./assets/images/icon-close.svg') %>"
+                  alt="menu hamburger icon"
+                />
+              </div>
+
+              <div class="nav--mobile__cont u__visually-hidden">
+                <nav class="nav--mobile__links-cont">
+                  <ul class="nav--mobile__list">
+                    <li class="nav--mobile__item nav--mobile__item--1">
+                      <div class="nav--mobile__item-cont">
+                        <div class="nav--mobile__link-cont">
+                          <div class="nav--mobile__link">
+                            <span class="nav--mobile__text"> Product </span>
+                            <span class="nav--mobile__arrow-cont"
+                              ><img
+                                class="nav--mobile__arrow"
+                                src="<%= require('./assets/images/icon-arrow-dark.svg') %>"
+                                alt="down arrow icon"
+                            /></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="
+                          nav--mobile__popup nav--mobile__popup--1
+                          u__visually-hidden
+                        "
+                      >
+                        <div class="nav--mobile__popup-cont">
+                          <ul class="nav--mobile__popup-list">
+                            <li class="nav--mobile__popup-item">
+                              <a href="#" class="nav--mobile__popup-link"
+                                >Overview</a
+                              >
+                            </li>
+                            <li class="nav--mobile__popup-item">
+                              <a href="#" class="nav--mobile__popup-link"
+                                >Pricing</a
+                              >
+                            </li>
+                            <li class="nav--mobile__popup-item">
+                              <a href="#" class="nav--mobile__popup-link"
+                                >Marketplace</a
+                              >
+                            </li>
+                            <li class="nav--mobile__popup-item">
+                              <a href="#" class="nav--mobile__popup-link"
+                                >Features</a
+                              >
+                            </li>
+                            <li class="nav--mobile__popup-item">
+                              <a href="#" class="nav--mobile__popup-link"
+                                >Integrations</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="nav--mobile__item nav--mobile__item--2">
+                      <div class="nav--mobile__item-cont">
+                        <div class="nav--mobile__link-cont">
+                          <div class="nav--mobile__link">
+                            <span class="nav--mobile__text"> Company </span>
+                            <span class="nav--mobile__arrow-cont"
+                              ><img
+                                class="nav--mobile__arrow"
+                                src="<%= require('./assets/images/icon-arrow-dark.svg') %>"
+                                alt="down arrow icon"
+                            /></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="
+                          nav--mobile__popup nav--mobile__popup--2
+                          u__visually-hidden
+                        "
+                      >
+                        <div class="nav--mobile__popup-cont">
+                          <ul class="nav--mobile__popup-list">
+                            <li class="nav--mobile__popup-item">
+                              <a href="#" class="nav--mobile__popup-link"
+                                >About</a
+                              >
+                            </li>
+                            <li class="nav--mobile__popup-item">
+                              <a href="#" class="nav--mobile__popup-link"
+                                >Team</a
+                              >
+                            </li>
+                            <li class="nav--mobile__popup-item">
+                              <a href="#" class="nav--mobile__popup-link"
+                                >Blog</a
+                              >
+                            </li>
+                            <li class="nav--mobile__popup-item">
+                              <a href="#" class="nav--mobile__popup-link"
+                                >Careers</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="nav--mobile__item nav--mobile_item--3">
+                      <div class="nav--mobile__item-cont">
+                        <div class="nav--mobile__link-cont">
+                          <div class="nav--mobile__link">
+                            <span class="nav--mobile__text"> Connect </span>
+                            <span class="nav--mobile__arrow-cont"
+                              ><img
+                                class="nav--mobile__arrow"
+                                src="<%= require('./assets/images/icon-arrow-dark.svg') %>"
+                                alt="down arrow icon"
+                            /></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div
+                        class="
+                          nav--mobile__popup nav--mobile__popup--3
+                          u__visually-hidden
+                        "
+                      >
+                        <div class="nav--mobile__popup-cont">
+                          <ul class="nav--mobile__popup-list">
+                            <li class="nav--mobile__popup-item">
+                              <a href="#" class="nav--mobile__popup-link"
+                                >Contact</a
+                              >
+                            </li>
+                            <li class="nav--mobile__popup-item">
+                              <a href="#" class="nav--mobile__popup-link"
+                                >Newsletter</a
+                              >
+                            </li>
+                            <li class="nav--mobile__popup-item">
+                              <a href="#" class="nav--mobile__popup-link"
+                                >LinkedIn</a
+                              >
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="nav--mobile__btn-cont">
+                    <a href="#" class="nav--mobile__link"
+                      ><span class="nav--mobile__login"> Login</span></a
+                    >
+                    <a href="#" class="btn btn--long btn--primary-gradient"
+                      >Sign Up</a
+                    >
+                  </div>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header__cont">
+        <div class="header__text-cont">
+          <h1 class="heading heading-primary header__title">
+            A modern publishing platform
+          </h1>
+          <div class="header__description">
+            Grow your audience and build your online brand
+          </div>
+        </div>
+        <div class="header__btn-cont">
+          <a href="#" class="btn btn--m btn--white-bg">Start for Free</a>
+          <a href="#" class="btn btn--m btn--no-bg">Learn More</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="dummy-div u__hidden" aria-hidden="true">&nbsp;</div>
+
+    <main>
+      <section class="why why--1">
+        <div class="why__section-cont">
+          <div class="z-card z-card--right z-card--1">
+            <h2
+              class="heading heading-secondary u__primary-vdBlue z-card__title"
+            >
+              Designed for the future
+            </h2>
+            <div class="z-card__content-cont">
+              <div class="z-card__content why__content">
+                <h3
+                  class="
+                    heading heading-tertiary
+                    u__primary-vdBlue u__tertiary-sb
+                  "
+                >
+                  Introducing an extensible editor
+                </h3>
+                <p class="why__description u__neutral-vdGrayBlue">
+                  Blogr features an exceedingly intuitive interface which lets
+                  you focus on one thing: creating content. The editor supports
+                  management of multiple blogs and allows easy manipulation of
+                  embeds such as images, videos, and Markdown. Extensibility
+                  with plugins and themes provide easy ways to add functionality
+                  or change the looks of a blog.
+                </p>
+              </div>
+              <div class="z-card__content why__content">
+                <h3
+                  class="
+                    heading heading-tertiary
+                    u__primary-vdBlue u__tertiary-sb
+                  "
+                >
+                  Robust content management
+                </h3>
+                <p class="why__description u__neutral-vdGrayBlue">
+                  Flexible content management enables users to easily move
+                  through posts. Increase the usability of your blog by adding
+                  customized categories, sections, format, or flow. With this
+                  functionality, you’re in full control.
+                </p>
+              </div>
+            </div>
+            <div class="z-card__img-cont">
+              <picture class="z-card__picture">
+                <source
+                  class="z-card__img z-card__img--editor"
+                  srcset="<%= require('./assets/images/illustration-editor-desktop.svg') %>"
+                  media="(min-width: 700px)"
+                />
+                <source
+                  class="z-card__img z-card__img--editor"
+                  srcset="<%= require('./assets/images/illustration-editor-mobile.svg') %>"
+                  media="(min-width: 100px)"
+                />
+                <img
+                  class="z-card__img z-card__img--editor"
+                  src="<%= require('./assets/images/illustration-editor-mobile.svg') %>"
+                  alt="illustration showing editor in desktop"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="highlight">
+        <div class="highlight__section-cont">
+          <div class="highlight__img-cont">
+            <img
+              class="highlight__img"
+              src="<%= require('./assets/images/illustration-phones.svg') %>"
+              alt="illustration showing two phones"
+            />
+          </div>
+          <div class="highlight__content-cont">
+            <h3 class="heading heading-tertiary u__tertiary-sb">
+              State of the Art Infrastructure
+            </h3>
+            <p>
+              With reliability and speed in mind, worldwide data centers provide
+              the backbone for ultra-fast connectivity. This ensures your site
+              will load instantly, no matter where your readers are, keeping
+              your site competitive.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="why why--2">
+        <div class="why__section-cont">
+          <div class="z-card z-card--left">
+            <div class="z-card__img-cont">
+              <picture class="z-card__picture">
+                <source
+                  class="z-card__img z-card__img--editor"
+                  srcset="<%= require('./assets/images/illustration-laptop-desktop.svg') %>"
+                  media="(min-width: 700px)"
+                />
+                <source
+                  class="z-card__img z-card__img--editor"
+                  srcset="<%= require('./assets/images/illustration-laptop-mobile.svg') %>"
+                  media="(min-width: 100px)"
+                />
+                <img
+                  class="z-card__img z-card__img--laptop"
+                  src="<%= require('./assets/images/illustration-laptop-mobile.svg') %>"
+                  alt="illustration showing laptop using blogr"
+                />
+              </picture>
+            </div>
+            <div class="z-card__content-cont">
+              <div class="z-card__content why__content">
+                <h3
+                  class="
+                    heading heading-tertiary
+                    u__primary-vdBlue u__tertiary-sb
+                  "
+                >
+                  Free, open, simple
+                </h3>
+                <p class="why__description u__neutral-vdGrayBlue">
+                  Blogr is a free and open source application backed by a large
+                  community of helpful developers. It supports features such as
+                  code syntax highlighting, RSS feeds, social media integration,
+                  third-party commenting tools, and works seamlessly with Google
+                  Analytics. The architecture is clean and is relatively easy to
+                  learn.
+                </p>
+              </div>
+              <div class="z-card__content why__content">
+                <h3
+                  class="
+                    heading heading-tertiary
+                    u__primary-vdBlue u__tertiary-sb
+                  "
+                >
+                  Powerful tooling
+                </h3>
+                <p class="why__description u__neutral-vdGrayBlue">
+                  Batteries included. We built a simple and straightforward CLI
+                  tool that makes customization and deployment a breeze, but
+                  capable of producing even the most complicated sites.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__cont">
+        <div class="footer__img-cont">
+          <div class="logo nav__logo">
+            <img
+              src="<%= require('./assets/images/logo.svg') %>"
+              alt="company logo"
+            />
+          </div>
+        </div>
+
+        <div class="footer__content-cont">
+          <div class="footer__title-cont">
+            <h4 class="footer__title">Product</h4>
+          </div>
+          <div class="footer__list-cont">
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a class="footer__link" href="#">Overview</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Pricing</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Marketplace</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Features</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Integrations </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__content-cont">
+          <div class="footer__title-cont">
+            <h4 class="footer__title">Company</h4>
+          </div>
+          <div class="footer__list-cont">
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a class="footer__link" href="#">About</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Team</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Blog</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Careers</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer__content-cont">
+          <div class="footer__title-cont">
+            <h4 class="footer__title">Connect</h4>
+          </div>
+          <div class="footer__list-cont">
+            <ul class="footer__list">
+              <li class="footer__item">
+                <a class="footer__link" href="#">Contact</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">Newsletter</a>
+              </li>
+              <li class="footer__item">
+                <a class="footer__link" href="#">LinkedIn</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

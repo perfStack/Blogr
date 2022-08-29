@@ -1,0 +1,11 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+
+.noscript {
+  &__text {
+    background-color: red;
+    color: white;
+    text-align: center;
+  }
+}

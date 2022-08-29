@@ -1,0 +1,83 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+
+// Local variables
+$highlight-section-bg-height: 70%;
+$highlight-section-bg-top: 12%;
+$highlight-section-bg-left: 0;
+
+.highlight {
+  &__section-cont {
+    align-items: center;
+    border-bottom-left-radius: 7rem;
+    border-top-right-radius: 7rem;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    &::before,
+    &::after {
+      border-radius: inherit;
+      content: '';
+      height: $highlight-section-bg-height;
+      left: $highlight-section-bg-left;
+      position: absolute;
+      top: $highlight-section-bg-top;
+    }
+
+    &::before {
+      background-image: url('../assets/images/bg-pattern-circles.svg');
+      background-position: -23.5rem -41rem;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-bottom-left-radius: 7rem;
+      overflow: hidden;
+      width: 60%;
+      z-index: -1;
+    }
+
+    &::after {
+      background-image:
+        linear-gradient(
+          to left,
+          v.$color-gradient-vdDesatBlue,
+          v.$color-gradient-vdGrayBlue
+        );
+      width: 100%;
+      z-index: -2;
+    }
+  }
+
+  &__img-cont {
+    max-width: 40%;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__content-cont {
+    color: v.$color-neutral-white;
+    max-width: 50%;
+    padding-right: v.$space-l;
+  }
+}
+
+.dummy-div {
+  &.blur {
+    @supports not (backdrop-filter: blur) {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    backdrop-filter: blur(0.2rem);
+    content: '';
+    display: block;
+    left: 0;
+    min-height: 100vh;
+    min-width: 100vw;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
+}

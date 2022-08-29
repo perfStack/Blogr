@@ -1,0 +1,90 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+
+$btn-padding: 1rem 1.6rem;
+$btn-border: 0.2rem;
+$btn-padding-w-border: (1rem - $btn-border) (1.6rem - $btn-border);
+
+.btn {
+  border-radius: 10rem;
+  display: inline-block;
+  transition: all 0.2s;
+
+  &--m {
+    &:link,
+    &:visited {
+      font-size: v.$font-s;
+      font-weight: 700;
+      padding: $btn-padding;
+    }
+
+    &:not(:last-child) {
+      margin-right: v.$space-xs;
+    }
+  }
+
+  &--long {
+    &:link,
+    &:visited {
+      font-size: v.$font-s;
+      font-weight: 700;
+      padding: 1.2rem 3.2rem;
+    }
+  }
+
+  &--white-bg {
+    &:link,
+    &:visited {
+      background-color: v.$color-neutral-white;
+      color: v.$color-primary-lRed;
+    }
+
+    &:hover,
+    &:active {
+      background-color: v.$color-primary-vlRed;
+      color: v.$color-neutral-white;
+    }
+  }
+
+  &--primary-gradient {
+    &:link,
+    &:visited {
+      background-color: v.$color-gradient-vlRed;
+      background-image:
+        linear-gradient(
+          to right,
+          v.$color-gradient-vlRed,
+          v.$color-gradient-lRed
+        );
+      color: v.$color-neutral-white;
+    }
+
+    &:hover,
+    &:active {
+      background-color: v.$color-gradient-lRed;
+      background-image: none;
+    }
+  }
+
+  &--no-bg {
+    &:link,
+    &:visited {
+      color: v.$color-neutral-white;
+    }
+
+    &:hover,
+    &:active {
+      background-color: v.$color-neutral-white;
+      color: v.$color-primary-vlRed;
+    }
+  }
+
+  &--no-bg#{&}--m {
+    &:link,
+    &:visited {
+      border: $btn-border solid v.$color-neutral-white;
+      padding: $btn-padding-w-border;
+    }
+  }
+}

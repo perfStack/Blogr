@@ -1,0 +1,53 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/functions' as f;
+@use '../abstracts/mixins' as m;
+
+.footer {
+  @include m.font-family-ubuntu;
+
+  background-color: v.$color-neutral-vdBlackBlue;
+  border-top-right-radius: 10rem;
+
+  &__cont {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto 0 15rem;
+    max-width: v.$max-cont-width - 20%;
+    padding: v.$space-l 0;
+  }
+
+  &__img-cont,
+  &__content-cont {
+    padding: 0 v.$space-l;
+  }
+
+  &__content-cont {
+    color: v.$color-neutral-white;
+  }
+
+  &__title-cont {
+    margin-bottom: v.$space-m;
+  }
+
+  &__title {
+    font-size: v.$font-s;
+    font-weight: 600;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: v.$space-xxs;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    font-size: v.$font-footer-list;
+    font-weight: 300;
+
+    &:hover,
+    &:active {
+      @include m.link-style-underline(0.1);
+    }
+  }
+}
